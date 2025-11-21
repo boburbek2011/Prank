@@ -1,0 +1,55 @@
+    @echo off
+    title Windows Update - Don't turn off your PC
+    color 0f
+    mode con cols=80 lines=25
+    
+    :: Prankni boshlashdan oldin biroz kutish
+    cls
+    echo.
+    echo.
+    echo                  Windows Update Prank - Press any key to start...
+    echo.
+    echo                  (This will simulate a Windows Update)
+    pause > nul
+    
+    :: To'liq ekranni simulyatsiya qilish (kino rejimiga o'xshash)
+    mode con cols=120 lines=30
+    
+    :: Yangilanish jarayonini simulyatsiya qilish
+    for /L %%i in (1,5,100) do (
+        cls
+        echo.
+        echo.
+        echo                Updating Windows. Please keep your computer on.
+        echo.
+        echo                Don't turn off your PC. This will take a moment.
+        echo.
+        echo.
+        echo                %%i%% complete
+        timeout /t 2 /nobreak > nul
+    )
+    
+    :: Soxta qayta ishga tushirish (reboot) xabari
+    cls
+    echo.
+    echo.
+    echo                Restarting your PC.
+    echo                This may take a few minutes.
+    echo.
+    echo                Please do not turn off your computer.
+    timeout /t 5 /nobreak > nul
+    
+    :: Prank yakunlangani haqida xabar
+    cls
+    echo.
+    echo.
+    echo                *************************************************
+    echo                *                                               *
+    echo                *               Prank Complete!                 *
+    echo                *        Your PC is safe, it was a joke :)      *
+    echo                *                                               *
+    echo                *************************************************
+    echo.
+    echo                Press any key to close this window...
+    pause > nul
+    exit
